@@ -18,6 +18,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+//     ui->running->setText("RUNNING...");
+    ui->results->setText("");
     QString host = ui ->lineEditHost->text();
     QString startPort = ui ->lineEditStartPort->text();
     quint16 startPortInt = startPort.toUShort();
@@ -28,7 +30,9 @@ void MainWindow::on_pushButton_clicked()
     qInfo() << host;
     QTcpSocket socket;
 
+
     for(quint16 i = startPortInt; i < endPortInt; i++){
+
             socket.connectToHost(host, i);
             if(socket.waitForConnected(timeoutInt)){
                 qInfo() << "Open Port: " << i;
@@ -40,3 +44,4 @@ void MainWindow::on_pushButton_clicked()
     ui->results->append("Scan Complete");
    qInfo() << "Scan Complete";
 }
+
