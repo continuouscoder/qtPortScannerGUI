@@ -37,7 +37,7 @@ void MainWindow::on_pushButton_clicked()
             if(socket.waitForConnected(timeoutInt)){
                 qInfo() << "Open Port: " << i;
                 QString openPort = QString::number(i);
-                ui->results->append(openPort);
+                ui->results->append("Port: " + openPort);
                 socket.disconnectFromHost();
             }
     }
