@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui concurrent
 QT       += network
 QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.9
 ICON = myapp.icns
@@ -32,7 +32,8 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    portscanner.h
 
 FORMS += \
         mainwindow.ui
